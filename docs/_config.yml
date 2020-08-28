@@ -21,7 +21,7 @@
 title: React Native Ecommerce
 email: developer@simicart.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Everything you need to build an Magento-integrated mobile app.
+  Everything you need to build an Magento-integrated mobile app
 baseurl: "/rn-ecommerce" # the subpath of your site, e.g. /blog
 url: "simicart.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
