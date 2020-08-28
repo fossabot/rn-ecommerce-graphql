@@ -31,6 +31,7 @@ github_username:  developer-simicart
 remote_theme: "mmistakes/minimal-mistakes@4.20.1"
 plugins:
   - jekyll-feed
+  - jekyll-include-cache
 
 # Exclude from processing.
 # The following items will not be processed, by default.
