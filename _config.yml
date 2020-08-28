@@ -28,7 +28,7 @@ url: "simicart.github.io" # the base hostname & protocol for your site, e.g. htt
 github_username:  developer-simicart
 
 # Build settings
-theme: minima
+theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-feed
 
