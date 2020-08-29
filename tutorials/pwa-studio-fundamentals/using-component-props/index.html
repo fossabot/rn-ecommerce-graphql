@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>Page Not Found | Magento PWA Documentation</title>
+	<title>Using component props | Magento PWA Documentation</title>
 	<meta name="description" content="Everything you need to build a Magento PWA.">
 
 	<link rel="stylesheet" href="https://use.typekit.net/iaw1apr.css">
@@ -85,7 +85,7 @@
 	<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://magento.com/apple-touch-icon-180x180.png">
 
 </head>
-<body class="layout-full-width">
+<body class="layout-default">
 
 	<header class="site-header">
 
@@ -152,7 +152,7 @@
   
 
   
-  <li class="menuitem spectrum-Tabs-item ">
+  <li class="menuitem spectrum-Tabs-item is-selected">
     <a class="spectrum-Tabs-itemLabel" href="/pwa-studio/tutorials/">Tutorials</a>
   </li>
   
@@ -304,22 +304,181 @@
 
 
 <div class="content-container">
-	<section class="full-width-content content">
+
+	<!-- sidebar -->
+<aside class="sidebar">
+    <button class="toc-toggler">Table of Contents</button>
+    <div class="sidebar-wrapper">
+
+      
+
+
+
+
+
+
+<div class="menu-section">
+    <div class="toc-entry">
+        <h4 class="guide-title">Tutorials</h4>
+    </div>
+
+    <ul class="table-of-contents spectrum-SideNav spectrum-SideNav--multiLevel" >
+    
+        <li class="spectrum-SideNav-item ">
+            
+            <a href="/pwa-studio/tutorials/" class="spectrum-SideNav-itemLink  ">Overview</a>
+            
+
+            
+        </li>
+    
+        <li class="spectrum-SideNav-item ">
+            
+            <a href="/pwa-studio/tutorials/cloud-deploy/" class="spectrum-SideNav-itemLink  ">Magento Cloud deployment</a>
+            
+
+            
+        </li>
+    
+        <li class="spectrum-SideNav-item ">
+            
+            <span class="spectrum-SideNav-heading">Hello UPWARD</span>
+            
+
+            
+            <ul class="spectrum-SideNav">
+            
+                <li class="spectrum-SideNav-item ">
+                    
+                    <a href="/pwa-studio/tutorials/hello-upward/simple-server/" class="spectrum-SideNav-itemLink  ">Creating a simple server</a>
+                    
+                </li>
+            
+                <li class="spectrum-SideNav-item ">
+                    
+                    <a href="/pwa-studio/tutorials/hello-upward/using-template-resolver/" class="spectrum-SideNav-itemLink  ">Using the TemplateResolver</a>
+                    
+                </li>
+            
+                <li class="spectrum-SideNav-item ">
+                    
+                    <a href="/pwa-studio/tutorials/hello-upward/adding-react/" class="spectrum-SideNav-itemLink  ">Adding React</a>
+                    
+                </li>
+            
+            </ul>
+            
+        </li>
+    
+        <li class="spectrum-SideNav-item ">
+            
+            <a href="/pwa-studio/tutorials/create-taglist-component/" class="spectrum-SideNav-itemLink  ">Create a TagList component</a>
+            
+
+            
+        </li>
+    
+        <li class="spectrum-SideNav-item ">
+            
+            <a href="/pwa-studio/tutorials/enable-sass-less-support/" class="spectrum-SideNav-itemLink  ">Enable SASS or LESS support</a>
+            
+
+            
+        </li>
+    
+        <li class="spectrum-SideNav-item ">
+            
+            <a href="/pwa-studio/tutorials/pwa-studio-fundamentals/" class="spectrum-SideNav-itemLink  parent">PWA Studio fundamentals</a>
+            
+
+            
+            <ul class="spectrum-SideNav">
+            
+                <li class="spectrum-SideNav-item ">
+                    
+                    <a href="/pwa-studio/tutorials/pwa-studio-fundamentals/project-setup/" class="spectrum-SideNav-itemLink  ">Project setup</a>
+                    
+                </li>
+            
+                <li class="spectrum-SideNav-item ">
+                    
+                    <a href="/pwa-studio/tutorials/pwa-studio-fundamentals/project-structure/" class="spectrum-SideNav-itemLink  ">Project structure</a>
+                    
+                </li>
+            
+                <li class="spectrum-SideNav-item ">
+                    
+                    <a href="/pwa-studio/tutorials/pwa-studio-fundamentals/add-a-static-route/" class="spectrum-SideNav-itemLink  ">Add a static route</a>
+                    
+                </li>
+            
+                <li class="spectrum-SideNav-item ">
+                    
+                    <a href="/pwa-studio/tutorials/pwa-studio-fundamentals/modify-site-footer/" class="spectrum-SideNav-itemLink  ">Modify the site footer</a>
+                    
+                </li>
+            
+                <li class="spectrum-SideNav-item is-selected">
+                    
+                    <a href="/pwa-studio/tutorials/pwa-studio-fundamentals/using-component-props/" class="spectrum-SideNav-itemLink  ">Using component props</a>
+                    
+                </li>
+            
+                <li class="spectrum-SideNav-item ">
+                    
+                    <a href="/pwa-studio/tutorials/pwa-studio-fundamentals/css-modules/" class="spectrum-SideNav-itemLink  ">CSS modules</a>
+                    
+                </li>
+            
+                <li class="spectrum-SideNav-item ">
+                    
+                    <a href="/pwa-studio/tutorials/pwa-studio-fundamentals/manage-state/" class="spectrum-SideNav-itemLink  ">Manage state</a>
+                    
+                </li>
+            
+                <li class="spectrum-SideNav-item ">
+                    
+                    <a href="/pwa-studio/tutorials/pwa-studio-fundamentals/work-with-graphql/" class="spectrum-SideNav-itemLink  ">Work with GraphQL</a>
+                    
+                </li>
+            
+                <li class="spectrum-SideNav-item ">
+                    
+                    <a href="/pwa-studio/tutorials/pwa-studio-fundamentals/production-launch-checklist/" class="spectrum-SideNav-itemLink  ">Production launch checklist</a>
+                    
+                </li>
+            
+            </ul>
+            
+        </li>
+    
+    </ul>
+</div>
+
+
+
+    </div>
+</aside>
+<!-- /sidebar -->
+
+
+	<section class="content">
 		<div class="content-wrap">
-			<!-- page-header -->
+			<header class="content-header">
+				<!-- page-header -->
 <section class="page-intro">
 	
-	<h1 class="page-title">Page Not Found</h1>
+	<h1 class="page-title">Using component props</h1>
 
 	
 	
 	<div class="github-links spectrum-ButtonGroup"><div class="github-link">
-    <a class="improve-page spectrum-ActionButton spectrum-ActionButton--quiet" href="https://github.com/magento/pwa-studio/tree/develop/pwa-devdocs/src/404.md" target="_blank">
+    <a class="improve-page spectrum-ActionButton spectrum-ActionButton--quiet" href="https://github.com/magento/pwa-studio/tree/develop/pwa-devdocs/src/tutorials/pwa-studio-fundamentals/using-component-props/index.md" target="_blank">
       <img class="spectrum-Icon spectrum-Icon--sizeS" src="/pwa-studio/assets/i/icons/edit.svg" alt="" />
       <span class="spectrum-ActionButton-label">Edit on GitHub</span> 
     </a>
   </div><div class="new-issue">
-    <a class="spectrum-ActionButton spectrum-ActionButton--quiet" href="https://github.com/magento/pwa-studio/issues/new?title=Feedback on page: /404.html" target="_blank">
+    <a class="spectrum-ActionButton spectrum-ActionButton--quiet" href="https://github.com/magento/pwa-studio/issues/new?title=Feedback on page: /tutorials/pwa-studio-fundamentals/using-component-props/" target="_blank">
       <img class="spectrum-Icon spectrum-Icon--sizeS"  src="/pwa-studio/assets/i/icons/bug.svg" alt="" />
       <span class="spectrum-ActionButton-label">Log an Issue</span>
     </a>
@@ -336,18 +495,123 @@
 
 </section>
 
-			<p>The page you are looking for could not be found or the documentation does not exist.</p>
+			</header>
+			<main>
+				<p>Props are the function parameters for a React component.
+They influence how a React component looks and behaves.</p>
 
-<p>To report a missing page, please submit an issue in our public <a href="">GitHub</a> repo.</p>
+<p>This tutorial provides guidance on how to set up and use props in your component.
+For more information on props, see React’s documentation on <a href="https://reactjs.org/docs/components-and-props.html">Components and Props</a>.</p>
 
-<p><a href="/pwa-studio/">Return to main page</a></p>
+<p class="bs-callout bs-callout-info">The React components discussed in this tutorial are <a href="https://reactjs.org/docs/components-and-props.html#function-and-class-components">function components</a>.
+Use function components in your projects to take advantage of the <a href="/pwa-studio/peregrine/talons/">custom React hooks</a> provided by the Peregrine library.</p>
 
+<h2 id="props-in-custom-components">Props in custom components</h2>
+
+<p>For function components, which is the kind of components used in the PWA Studio project, props come from the single object argument passed into the function.</p>
+
+<p>Example:</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="nx">props</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">name</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">props</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Hello, <span class="si">{</span><span class="nx">name</span><span class="si">}</span>!<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">Greeting</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>In this example, the component identifies its props object as <code class="highlighter-rouge">props</code> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">unpacks</a> the <code class="highlighter-rouge">name</code> prop from it.
+This <code class="highlighter-rouge">name</code> prop is used to render the HTML content of the Greeting component.</p>
+
+<p>When using the Greeting component, set a value for the <code class="highlighter-rouge">name</code> attribute to pass this value to the function component.</p>
+
+<p>Example:</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="p">&lt;</span><span class="nc">Greeting</span> <span class="na">name=</span><span class="s2">"Joe Bloggs"</span> <span class="p">/&gt;</span>
+</code></pre></div></div>
+
+<p>Output:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;strong&gt;</span>Hello, Joe Bloggs!<span class="nt">&lt;/strong&gt;</span>
+</code></pre></div></div>
+
+<h2 id="typechecking-props">Typechecking props</h2>
+
+<p>Typechecking lets you catch bugs in your components and application in general.
+When you add typechecking to your component, React logs a warning whenever it encounters an invalid prop value.</p>
+
+<p>To use typechecking for your components, import the <code class="highlighter-rouge">PropTypes</code> library and set the <code class="highlighter-rouge">propTypes</code> attribute on your component.</p>
+
+<div class="language-diff highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  import React from 'react';
+<span class="gi">+ import { string } from 'prop-types';
+</span>  
+  const Greeting = props =&gt; {
+    const { name } = props;
+  
+    return (
+      &lt;strong&gt;Hello, {name}!&lt;/strong&gt;
+    );
+  }
+  
+  export default Greeting;
+<span class="gi">+  
++ Greeting.propTypes = {
++   name: string.isRequired
++ };
+</span></code></pre></div></div>
+
+<p>In the example, the <code class="highlighter-rouge">.isRequired</code> modifier is added to to the prop type to indicate a required prop.
+Use this to avoid rendering components that are in an undesireable state because of a missing prop.</p>
+
+<p>To trigger a typecheck error, pass in an invalid prop to the Greeting component and check the browser console for warnings.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="p">&lt;</span><span class="nc">Greeting</span> <span class="na">name=</span><span class="si">{</span><span class="mi">2</span><span class="si">}</span> <span class="p">/&gt;</span>
+</code></pre></div></div>
+
+<p><img src="./images/prop-types-error.png" alt="prop types error" /></p>
+
+<p>For more information on typechecking, read the React documentation for <a href="https://reactjs.org/docs/typechecking-with-proptypes.html">Typechecking with PropTypes</a>.</p>
+
+<h2 id="props-in-venia-components">Props in Venia components</h2>
+
+<p>Props in Venia components allow you to:</p>
+
+<ul>
+  <li>Change style class names</li>
+  <li>Add callbacks functions for component events</li>
+  <li>Provide data for internal logic</li>
+</ul>
+
+<p>Venia component props are public API and documented in the reference section of this site.
+You can also find them and their prop types documented in the <a href="https://github.com/magento/pwa-studio/tree/develop/packages/venia-ui/lib/components">project source code</a> itself.</p>
+
+<p>For example, the props for the <a href="/pwa-studio/venia-ui/reference/components/Button/">Button</a> component provides props for changing its style, button type, and priority level.</p>
+
+
+			</main>
+			<footer class="content-footer">
+				
+
+			</footer>
 		</div>
+		<!-- /.content-wrap -->
+
 		<div class="page-info">
-		</div>
+
+  
+
+</div>
+
+
 	</section>
-<!-- /main content -->
-</div> <!-- container -->
+	<!-- /.content -->
+
+</div> <!-- /.content-container -->
 
 
 	</div>
