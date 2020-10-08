@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.js"],"names":["INTERNAL_ERROR","NOT_FOUND","useMagentoRoute"],"mappings":"AAAA,SAASA,cAAT,EAAyBC,SAAzB,QAA0C,qBAA1C;AACA,SAASC,eAAT,QAAgC,mBAAhC","sourcesContent":["export { INTERNAL_ERROR, NOT_FOUND } from './getRouteComponent';\nexport { useMagentoRoute } from './useMagentoRoute';\n"]}

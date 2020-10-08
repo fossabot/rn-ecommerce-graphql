@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;AAAA;;AACA","sourcesContent":["export { INTERNAL_ERROR, NOT_FOUND } from './getRouteComponent';\nexport { useMagentoRoute } from './useMagentoRoute';\n"]}

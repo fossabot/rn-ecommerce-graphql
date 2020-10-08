@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.js"],"names":["default","request"],"mappings":"AAAA,SAASA,OAAT,EAAkBC,OAAlB,QAAiC,gBAAjC","sourcesContent":["export { default, request } from './M2ApiRequest';\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;AACA","sourcesContent":["export { default as MagentoRouteHandler } from './magentoRouteHandler';\nexport {\n    default,\n    Consumer as RouteConsumer,\n    Provider as RouteProvider\n} from './router';\n"]}
