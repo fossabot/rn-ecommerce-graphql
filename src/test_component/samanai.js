@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-import { Button, ScrollView, Text, View } from 'react-native';
+import { View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useAppContext } from '../lib/context/app';
 import ColorfulButton from '../visualComponent/ColorfulButton';
 import StateDisplayer from './stateDisplayer';
 
 function Samanai(props) {
-  const data = useSelector((state) => state.app);
-
-  const [count, setCount] = useState(0);
+  const [valid, setValid] = useState(true);
   const [appState, appApi] = useAppContext();
   const {
     toggleDrawer,
@@ -16,16 +14,17 @@ function Samanai(props) {
     toggleSearch,
     setOnline,
     setOffline,
+    setPageLoading,
   } = appApi;
 
   return (
     <View>
-      <StateDisplayer data={data} title={'App'} />
+      <StateDisplayer data={appState} title={'App'} />
       <ColorfulButton
         title={'TOGGLE_DRAWER'}
         onPress={() => {
-          toggleDrawer(count % 2 === 0 ? 'samanai' : 'siminia');
-          setCount((prevState) => (prevState + 1) % 2);
+          toggleDrawer(valid ? 'samanai' : 'siminia');
+          setValid((prevState) => !prevState);
         }}
       />
       <ColorfulButton
@@ -50,6 +49,18 @@ function Samanai(props) {
         title={'SET_OFFLINE'}
         onPress={() => {
           setOffline();
+        }}
+      />
+      <ColorfulButton
+        title={'SET_PAGE_LOADING true'}
+        onPress={() => {
+          setPageLoading(true);
+        }}
+      />
+      <ColorfulButton
+        title={'SET_PAGE_LOADING false'}
+        onPress={() => {
+          setPageLoading(false);
         }}
       />
     </View>

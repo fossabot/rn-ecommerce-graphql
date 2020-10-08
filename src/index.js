@@ -6,6 +6,8 @@ import { demoStore } from './lib/store/x_Store';
 import AppContextProvider from './lib/context/app';
 import StateDisplayer from './test_component/stateDisplayer';
 import DemoBanner from './test_component/DemoBanner';
+import Xocalova from './test_component/Xocalova';
+import CatalogContextProvider from './lib/context/catalog';
 
 export default class RootComponent extends React.Component {
   render() {
@@ -13,10 +15,13 @@ export default class RootComponent extends React.Component {
       <View style={{ alignSelf: 'stretch', marginLeft: 7, marginRight: 7 }}>
         <Provider store={demoStore}>
           <AppContextProvider>
-            <ScrollView>
-              <DemoBanner />
-              <Samanai />
-            </ScrollView>
+            <CatalogContextProvider>
+              <ScrollView>
+                <DemoBanner />
+                <Samanai />
+                <Xocalova />
+              </ScrollView>
+            </CatalogContextProvider>
           </AppContextProvider>
         </Provider>
       </View>

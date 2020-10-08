@@ -12,7 +12,7 @@ const CatalogContextProvider = props => {
 
     const catalogApi = useMemo(
         () => ({
-            actions,
+            ...actions,
             ...asyncActions
         }),
         [actions, asyncActions]

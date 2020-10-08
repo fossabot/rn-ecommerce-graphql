@@ -10,13 +10,13 @@ function StateDisplayer(props) {
       <Text style={{ fontSize: 17 }}>
         {JSON.stringify(props.data, null, 2)}
       </Text>
-      <View
-        style={{
-          backgroundColor: getRandomHexColor(),
-          height: 30,
-          marginTop: 5,
-        }}
-      />
+      {/*<View*/}
+      {/*  style={{*/}
+      {/*    backgroundColor: getRandomHexColor(),*/}
+      {/*    height: 30,*/}
+      {/*    marginTop: 5,*/}
+      {/*  }}*/}
+      {/*/>*/}
       <Text>------------------------------</Text>
     </View>
   );
