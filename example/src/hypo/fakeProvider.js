@@ -11,7 +11,7 @@ const asyncActions = {
 
 const AppContext = createContext();
 
-const AppContextProvider = (props) => {
+const FakeProvider = (props) => {
   const { actions, appState, asyncActions, children } = props;
 
   const appApi = useMemo(
@@ -36,6 +36,6 @@ const mapDispatchToProps = (dispatch) => ({
   asyncActions: bindActionCreators(asyncActions, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppContextProvider);
+export default connect(mapStateToProps, mapDispatchToProps)(FakeProvider);
 
 export const useAppContext = () => useContext(AppContext);

@@ -26,7 +26,7 @@ const getBindFunction = value =>
  *
  * Note that `actions` may not be a function.
  *
- * @param {CreatorObject} actions - A nested object containing action creators.
+ * @param {{toggleSearch?: function(): function(*): Promise<*>, closeDrawer?: function(): function(*): Promise<*>, toggleDrawer?: function(*=): function(*): Promise<*>}} actions - A nested object containing action creators.
  * @param {Function} dispatch - The `dispatch` function from a Redux store.
  * @return {CreatorObject} - A nested object containing bound action creators.
  */
