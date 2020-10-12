@@ -1,14 +1,21 @@
-import { clearCartDataFromCache } from '../../../Apollo/clearCartDataFromCache';
-import BrowserPersistence from '../../../util/simplePersistence';
-import { signOut } from '../user';
+import {clearCartDataFromCache} from '../../../Apollo/clearCartDataFromCache';
+// import {signOut} from '../user';
 import actions from './actions';
+import StoragePlaceholder from "../../../util/storagePlaceholder";
+import {type fetchCartId} from "../../../../temporaryMocks/Network/fetchCartId";
+import {type fetchCartDetails} from "../../../../temporaryMocks/Network/fetchCartDetails";
 
-const storage = new BrowserPersistence();
+const storage = new StoragePlaceholder();
 
-export const createCart = payload =>
+//currently replacing not signout with direct call
+
+
+export const createCart = (payload: {
+    fetchCartId: fetchCartId
+}) =>
     async function thunk(dispatch, getState) {
-        const { fetchCartId } = payload;
-        const { cart } = getState();
+        const {fetchCartId} = payload;
+        const {cart} = getState();
 
         // if a cart already exists in the store, exit
         if (cart.cartId) {
@@ -27,7 +34,7 @@ export const createCart = payload =>
 
         try {
             // errors can come from graphql and are not thrown
-            const { data, errors } = await fetchCartId({
+            const {data, errors} = await fetchCartId({
                 fetchPolicy: 'no-cache'
             });
 
@@ -50,7 +57,14 @@ export const createCart = payload =>
         }
     };
 
-export const addItemToCart = (payload = {}) => {
+export const addItemToCart = (payload: {
+    item: {
+        media_gallery_entries: Array<{}>,
+        sku: string,
+        fetchCartId: fetchCartId,
+        fetchCartDetails: fetchCartDetails,
+    }
+}) => {
     const {
         addItemMutation,
         fetchCartDetails,
@@ -66,9 +80,10 @@ export const addItemToCart = (payload = {}) => {
         await writingImageToCache;
         dispatch(actions.addItem.request(payload));
 
-        const { cart, user } = getState();
-        const { cartId } = cart;
-        const { isSignedIn } = user;
+        const {cart, user} = getState();
+        const {cartId} = cart;
+        // const {isSignedIn} = user;
+        const isSignedIn = false
 
         try {
             const variables = {
@@ -105,7 +120,8 @@ export const addItemToCart = (payload = {}) => {
                     // Since simple persistence just deletes auth token without
                     // informing Redux, we need to perform the sign out action
                     // to reset the user and cart slices back to initial state.
-                    await dispatch(signOut());
+                    // await dispatch(signOut());
+                    await dispatch(removeCart())
                 } else {
                     // Delete the cached ID from local storage and Redux.
                     // In contrast to the save, make sure storage deletion is
@@ -167,9 +183,11 @@ export const updateItemInCart = (payload = {}) => {
         await writingImageToCache;
         dispatch(actions.updateItem.request(payload));
 
-        const { cart, user } = getState();
-        const { cartId } = cart;
-        const { isSignedIn } = user;
+        const {cart, user} = getState();
+        const {cartId} = cart;
+        // const {isSignedIn} = user;
+
+        const isSignedIn = false
 
         try {
             if (productType === 'ConfigurableProduct') {
@@ -263,14 +281,21 @@ export const updateItemInCart = (payload = {}) => {
     };
 };
 
-export const removeItemFromCart = payload => {
-    const { item, fetchCartDetails, fetchCartId, removeItem } = payload;
+export const removeItemFromCart = (payload: {
+    item: {
+        id?: string,
+    },
+    fetchCartId: fetchCartId,
+    fetchCartDetails: fetchCartDetails,
+
+}) => {
+    const {item, fetchCartDetails, fetchCartId, removeItem} = payload;
 
     return async function thunk(dispatch, getState) {
         dispatch(actions.removeItem.request(payload));
 
-        const { cart } = getState();
-        const { cartId } = cart;
+        const {cart} = getState();
+        const {cartId} = cart;
 
         try {
             await removeItem({
@@ -316,13 +341,19 @@ export const removeItemFromCart = payload => {
     };
 };
 
-export const getCartDetails = payload => {
-    const { apolloClient, fetchCartId, fetchCartDetails } = payload;
+export const getCartDetails = (payload: {
+    fetchCartDetails: fetchCartDetails,
+    fetchCartId: fetchCartId,
+}) => {
+    const {apolloClient, fetchCartId, fetchCartDetails} = payload;
 
     return async function thunk(dispatch, getState) {
-        const { cart, user } = getState();
-        const { cartId } = cart;
-        const { isSignedIn } = user;
+        const {cart, user} = getState();
+        const {cartId} = cart;
+        // const {isSignedIn} = user;
+
+        const isSignedIn = false
+
 
         // if there isn't a cart, create one then retry this operation
         if (!cartId) {
@@ -345,13 +376,13 @@ export const getCartDetails = payload => {
         dispatch(actions.getDetails.request(cartId));
 
         try {
-            const { data } = await fetchCartDetails({
-                variables: { cartId },
+            const {data} = await fetchCartDetails({
+                variables: {cartId},
                 fetchPolicy: 'no-cache'
             });
-            const { cart: details } = data;
+            const {cart: details} = data;
 
-            dispatch(actions.getDetails.receive({ details }));
+            dispatch(actions.getDetails.receive({details}));
         } catch (error) {
             dispatch(actions.getDetails.receive(error));
 
@@ -361,7 +392,8 @@ export const getCartDetails = payload => {
                     // Since simple persistence just deletes auth token without
                     // informing Redux, we need to perform the sign out action
                     // to reset the user and cart slices back to initial state.
-                    await dispatch(signOut());
+                    // await dispatch(signOut());
+                    await dispatch(removeCart())
                 } else {
                     // Delete the cached ID from local storage.
                     await dispatch(removeCart());
@@ -407,7 +439,7 @@ export async function retrieveCartId() {
     return storage.getItem('cartId');
 }
 
-export async function saveCartId(id) {
+export async function saveCartId(id: string) {
     return storage.setItem('cartId', id);
 }
 
@@ -419,12 +451,13 @@ async function retrieveImageCache() {
     return storage.getItem('imagesBySku') || {};
 }
 
-async function saveImageCache(cache) {
+async function saveImageCache(cache: string) {
     return storage.setItem('imagesBySku', cache);
 }
 
+//In react-native, also means saving to AsyncStorage
 export async function writeImageToCache(item = {}) {
-    const { media_gallery_entries: media, sku } = item;
+    const {media_gallery_entries: media, sku} = item;
 
     if (sku) {
         const image = media && (media.find(m => m.position === 1) || media[0]);

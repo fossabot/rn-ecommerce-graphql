@@ -1,12 +1,12 @@
 import app from './app';
-// import cart from './cart';
+import cart from './cart';
 import catalog from './catalog';
 // import checkout from './checkout';
 // import user from './user';
 
 const reducers = {
   app,
-  // cart,
+  cart,
   catalog,
   // checkout,
   // user
