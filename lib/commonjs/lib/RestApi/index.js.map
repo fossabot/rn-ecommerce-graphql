@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.js"],"names":[],"mappings":";;;;;;;AAAA","sourcesContent":["import * as Magento2 from './Magento2';\n\nexport { Magento2 };\n"]}

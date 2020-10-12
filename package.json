@@ -141,7 +141,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.2.2",
-    "@react-navigation/drawer": "^5.9.3",
+    "@react-native-community/async-storage": "^1.12.1",
     "@reduxjs/toolkit": "^1.4.0",
     "graphql-tag": "^2.11.0",
     "prop-types": "^15.7.2",
@@ -149,7 +149,6 @@
     "react-redux": "^7.2.1",
     "redux": "^4.0.5",
     "redux-actions": "^2.6.5",
-    "redux-thunk": "^2.3.0",
-    "rxjs": "^6.6.3"
+    "redux-thunk": "^2.3.0"
   }
 }

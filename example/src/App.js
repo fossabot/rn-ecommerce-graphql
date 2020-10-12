@@ -1,18 +1,13 @@
-import * as React from 'react';
-import { StyleSheet, View } from 'react-native';
-import Simicart from 'simicart';
+import React from 'react';
+import {ScrollView, Text, View} from 'react-native';
+import AppStateDisplay from './test_component/appStateDisplay.js';
+import CatalogStateDisplay from './test_component/catalogStateDisplay.js';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Simicart />
-    </View>
+      <ScrollView>
+        <AppStateDisplay/>
+        <CatalogStateDisplay/>
+      </ScrollView>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

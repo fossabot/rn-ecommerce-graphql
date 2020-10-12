@@ -1,30 +1,14 @@
-import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
-import { Provider } from 'react-redux';
-import Samanai from './test_component/samanai';
-import { demoStore } from './lib/store/x_Store';
-import AppContextProvider from './lib/context/app';
-import StateDisplayer from './test_component/stateDisplayer';
-import DemoBanner from './test_component/DemoBanner';
-import Xocalova from './test_component/Xocalova';
-import CatalogContextProvider from './lib/context/catalog';
+export {AppComposite} from './composite/appComposite.js';
+export {demoStore} from './lib/store/x_Store.js';
 
-export default class RootComponent extends React.Component {
-  render() {
-    return (
-      <View style={{ alignSelf: 'stretch', marginLeft: 7, marginRight: 7 }}>
-        <Provider store={demoStore}>
-          <AppContextProvider>
-            <CatalogContextProvider>
-              <ScrollView>
-                <DemoBanner />
-                <Samanai />
-                <Xocalova />
-              </ScrollView>
-            </CatalogContextProvider>
-          </AppContextProvider>
-        </Provider>
-      </View>
-    );
-  }
-}
+export {useAppContext} from './lib/context/app';
+export {useCatalogContext} from './lib/context/catalog';
+
+export {default as AppContextProvider} from './lib/context/app.js';
+export {default as CatalogContextProvider} from './lib/context/catalog';
+
+export {default as bindActionCreators} from './lib/util/bindActionCreators';
+
+// Temporary for testing purpose
+export {default as actions} from './lib/store/actions/app/actions';
+export * from './lib/store/actions/app/asyncActions';

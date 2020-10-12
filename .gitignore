@@ -3,5 +3,6 @@ example/node_modules
 yarn.lock
 node_modules
 package-lock.json
+lib
 
 

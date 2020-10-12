@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.js"],"names":["Magento2"],"mappings":"AAAA,OAAO,KAAKA,QAAZ,MAA0B,YAA1B;AAEA,SAASA,QAAT","sourcesContent":["import * as Magento2 from './Magento2';\n\nexport { Magento2 };\n"]}
