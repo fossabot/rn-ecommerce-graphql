@@ -5,6 +5,7 @@ import AppContextProvider from '../lib/context/app.js';
 import CatalogContextProvider from '../lib/context/catalog.js';
 import CartContextProvider from '../lib/context/cart.js';
 import UserContextProvider from '../lib/context/user.js';
+import CheckoutContextProvider from '../lib/context/checkout.js';
 
 function AppComposite(props) {
   return (
@@ -13,7 +14,9 @@ function AppComposite(props) {
         <CatalogContextProvider>
           {/*<CartContextProvider>*/}
           <UserContextProvider>
-            {props.children}
+            <CheckoutContextProvider>
+              {props.children}
+            </CheckoutContextProvider>
           </UserContextProvider>
           {/*</CartContextProvider>*/}
         </CatalogContextProvider>
