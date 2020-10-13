@@ -12,6 +12,7 @@ import {name as appName} from './app.json';
 import App from './src/App';
 import AppStateDisplay from './src/test_component/appStateDisplay.js';
 import CatalogStateDisplay from './src/test_component/catalogStateDisplay.js';
+import UserStateDisplay from './src/test_component/userStateDisplay.js';
 
 const Drawer = createDrawerNavigator();
 
@@ -22,6 +23,7 @@ function Index(props) {
             <Drawer.Navigator>
               <Drawer.Screen name={'App'} component={AppStateDisplay}/>
               <Drawer.Screen name={'Catalog'} component={CatalogStateDisplay}/>
+              <Drawer.Screen name={'User'} component={UserStateDisplay}/>
             </Drawer.Navigator>
         </AppComposite>
       </NavigationContainer>

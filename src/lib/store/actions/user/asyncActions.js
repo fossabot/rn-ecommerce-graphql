@@ -30,22 +30,22 @@ export const signOut = (payload = {}) =>
         await dispatch(removeCart());
     };
 
-export const getUserDetails = ({ fetchUserDetails }) =>
+export const getUserDetails = (payload = {}) =>
     async function thunk(...args) {
         const [dispatch, getState] = args;
         const { user } = getState();
 
-        if (user.isSignedIn) {
-            dispatch(actions.getDetails.request());
+        // if (user.isSignedIn) {
+            // dispatch(actions.getDetails.request());
 
             try {
-                const { data } = await fetchUserDetails();
+                // const { data } = await fetchUserDetails();
 
-                dispatch(actions.getDetails.receive(data.customer));
+                dispatch(actions.getDetails.receive(payload));
             } catch (error) {
                 dispatch(actions.getDetails.receive(error));
             }
-        }
+        // }
     };
 
 export const resetPassword = ({ email }) =>
@@ -67,7 +67,7 @@ export const setToken = token =>
 
         // Store token in local storage.
         // TODO: Get correct token expire time from API
-        storage.setItem('signin_token', token, 3600);
+        // storage.setItem('signin_token', token, 3600);
 
         // Persist in store
         dispatch(actions.setToken(token));
@@ -78,7 +78,7 @@ export const clearToken = () =>
         const [dispatch] = args;
 
         // Clear token from local storage
-        storage.removeItem('signin_token');
+        // storage.removeItem('signin_token');
 
         // Remove from store
         dispatch(actions.clearToken());
