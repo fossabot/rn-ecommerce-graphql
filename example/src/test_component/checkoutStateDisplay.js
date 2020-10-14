@@ -14,34 +14,16 @@ function CheckoutStateDisplay(props) {
         submitPaymentMethodAndBillingAddress,
         submitBillingAddress,
         submitPaymentMethod,
-        submitShippingAddress,
+        submitShippingAddress,  
         submitShippingMethod,
-        submitOrder,
+        submitOrder, 
         createAccount,
         beginCheckout
     } = checkoutApi;
 
     return (
         <ScrollView>
-            <StateDisplayer data={checkoutState} title={'User'} />
-            <ColorfulButton
-                title={'cancelCheckout'}
-                onPress={() => {
-                    cancelCheckout();
-                }}
-            />
-            <ColorfulButton
-                title={'resetCheckout'}
-                onPress={() => {
-                    resetCheckout();
-                }}
-            />
-            <ColorfulButton
-                title={'resetReceipt'}
-                onPress={() => {
-                    resetReceipt();
-                }}
-            />
+            <StateDisplayer data={checkoutState} title={'Checkout'} />
             <ColorfulButton
                 title={'beginCheckout'}
                 onPress={() => {
@@ -82,6 +64,24 @@ function CheckoutStateDisplay(props) {
                         code: getRandomLargeNumber(),
                         data: getRandomLargeNumber(),
                     });
+                }}
+            />
+            <ColorfulButton
+                title={'cancelCheckout'}
+                onPress={() => {
+                    cancelCheckout();
+                }}
+            />
+            <ColorfulButton
+                title={'resetCheckout'}
+                onPress={() => {
+                    resetCheckout();
+                }}
+            />
+            <ColorfulButton
+                title={'resetReceipt'}
+                onPress={() => {
+                    resetReceipt();
                 }}
             />
         </ScrollView>
