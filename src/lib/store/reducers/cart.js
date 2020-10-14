@@ -64,6 +64,7 @@ const reducerMap = {
     },
     [actions.addItem.receive]: (state, { payload, error }) => {
         if (error) {
+            console.log(`some error`)
             return {
                 ...state,
                 addItemError: payload,

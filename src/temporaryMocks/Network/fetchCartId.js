@@ -1,4 +1,5 @@
 export const fetchCartId = (params: fetchParams): answer => {
+  console.log('fetch id');
   return {
     data: {
       cartId: 'this is a cartId',
