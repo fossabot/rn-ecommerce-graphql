@@ -383,7 +383,7 @@ export const getCartDetails = (payload: {
 
     // Once we have the cart id indicate that we are starting to make
     // async requests for the details.
-    dispatch(actions.getDetails.request(cartId));
+      dispatch(actions.getDetails.request(cartId));
 
     try {
       const {data} = await fetchCartDetails({
