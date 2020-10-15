@@ -1,9 +1,7 @@
-import { handleActions } from 'redux-actions';
+import {handleActions} from 'redux-actions';
+import StoragePlaceholder from "../../../temporaryMocks/storage/storagePlaceholder";
 
-import { Util } from '../../index';
-// const { BrowserPersistence } = Util;
-
-// const storage = new BrowserPersistence();
+// const storage = new StoragePlaceholder();
 
 import actions from '../actions/user';
 

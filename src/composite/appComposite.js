@@ -12,11 +12,13 @@ function AppComposite(props) {
     <Provider store={demoStore}>
       <AppContextProvider>
         <CatalogContextProvider>
-          {/*<CartContextProvider>*/}
-          <UserContextProvider>
-            <CheckoutContextProvider>{props.children}</CheckoutContextProvider>
-          </UserContextProvider>
-          {/*</CartContextProvider>*/}
+          <CartContextProvider>
+            <UserContextProvider>
+              <CheckoutContextProvider>
+                {props.children}
+              </CheckoutContextProvider>
+            </UserContextProvider>
+          </CartContextProvider>
         </CatalogContextProvider>
       </AppContextProvider>
     </Provider>

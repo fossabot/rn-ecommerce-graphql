@@ -1,11 +1,10 @@
-import { Magento2 } from '../../../RestApi';
-import BrowserPersistence from '../../../util/simplePersistence';
-import { closeDrawer } from '../app';
-import { createCart, removeCart } from '../cart';
+import StoragePlaceholder from "../../../../temporaryMocks/storage/storagePlaceholder";
+import {closeDrawer} from '../app';
+import {createCart, removeCart} from '../cart';
 import actions from './actions';
+import {requestMimic} from "../../../../temporaryMocks/Network/requestMimic";
 
-const { request } = Magento2;
-const storage = new BrowserPersistence();
+const storage = new StoragePlaceholder();
 
 export const beginCheckout = payload =>
     async function thunk(dispatch) {
@@ -59,12 +58,12 @@ export const resetReceipt = () =>
 
 export const submitPaymentMethodAndBillingAddress = payload =>
     async function thunk(dispatch) {
-        const { countries, formValues } = payload;
-        const { billingAddress, paymentMethod } = formValues;
+        const {countries, formValues} = payload;
+        const {billingAddress, paymentMethod} = formValues;
         console.log(billingAddress);
         console.log(countries);
         // return Promise.all([
-            dispatch(submitBillingAddress({ billingAddress, countries })),
+        dispatch(submitBillingAddress({billingAddress, countries})),
             dispatch(submitPaymentMethod(paymentMethod))
         // ]);
     };
@@ -81,7 +80,7 @@ export const submitBillingAddress = payload =>
         // }
 
         try {
-            const { billingAddress, countries } = payload;
+            const {billingAddress, countries} = payload;
 
             let desiredBillingAddress = billingAddress;
             // if (!billingAddress.sameAsShippingAddress) {
@@ -130,9 +129,9 @@ export const submitShippingAddress = (payload = {}) =>
             setShippingAddressOnCart
         } = payload;
 
-        const { cart, user } = getState();
+        const {cart, user} = getState();
 
-        const { cartId } = cart;
+        const {cartId} = cart;
         if (!cartId) {
             throw new Error('Missing required information: cartId');
         }
@@ -163,7 +162,7 @@ export const submitShippingAddress = (payload = {}) =>
                 country_id
             } = address;
 
-            const { data } = await setShippingAddressOnCart({
+            const {data} = await setShippingAddressOnCart({
                 variables: {
                     cartId,
                     firstname,
@@ -198,8 +197,8 @@ export const submitShippingMethod = payload =>
     async function thunk(dispatch, getState) {
         dispatch(actions.shippingMethod.submit());
 
-        const { cart } = getState();
-        const { cartId } = cart;
+        const {cart} = getState();
+        const {cartId} = cart;
         if (!cartId) {
             throw new Error('Missing required information: cartId');
         }
@@ -214,12 +213,12 @@ export const submitShippingMethod = payload =>
         }
     };
 
-export const submitOrder = ({ fetchCartId }) =>
+export const submitOrder = ({fetchCartId}) =>
     async function thunk(dispatch, getState) {
         dispatch(actions.order.submit());
 
-        const { cart, user } = getState();
-        const { cartId } = cart;
+        const {cart, user} = getState();
+        const {cartId} = cart;
         if (!cartId) {
             throw new Error('Missing required information: cartId');
         }
@@ -242,7 +241,7 @@ export const submitOrder = ({ fetchCartId }) =>
                 ? authedShippingEndpoint
                 : guestShippingEndpoint;
 
-            await request(shippingEndpoint, {
+            await requestMimic(shippingEndpoint, {
                 method: 'POST',
                 body: JSON.stringify({
                     addressInformation: {
@@ -263,7 +262,7 @@ export const submitOrder = ({ fetchCartId }) =>
                 ? authedPaymentEndpoint
                 : guestPaymentEndpoint;
 
-            const response = await request(paymentEndpoint, {
+            const response = await requestMimic(paymentEndpoint, {
                 method: 'POST',
                 body: JSON.stringify({
                     billingAddress: billing_address,
@@ -308,8 +307,8 @@ export const submitOrder = ({ fetchCartId }) =>
         }
     };
 
-export const createAccount = ({ history }) => async (dispatch, getState) => {
-    const { checkout } = getState();
+export const createAccount = ({history}) => async (dispatch, getState) => {
+    const {checkout} = getState();
 
     const {
         email,
@@ -341,12 +340,12 @@ export const createAccount = ({ history }) => async (dispatch, getState) => {
  * @param {object[]} countries - The list of countries data.
  */
 export const formatAddress = (address = {}, countries = []) => {
-    const { region_code } = address;
+    const {region_code} = address;
 
-    const usa = countries.find(({ id }) => id === 'US');
-    const { available_regions: regions } = usa;
+    const usa = countries.find(({id}) => id === 'US');
+    const {available_regions: regions} = usa;
 
-    const region = regions.find(({ code }) => code === region_code);
+    const region = regions.find(({code}) => code === region_code);
 
     return {
         country_id: 'US',

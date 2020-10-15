@@ -1,10 +1,9 @@
-import { cartItem } from '../../lib/talons/CartPage/ProductListing/EditModal/__fixtures__/configurableProduct.js';
 import { cart_data } from './fetchCartDetails.js';
 
 export const addItemMutation = (params: {
   cartId: string,
   parentSku: string,
-  product: item,
+  product: {},
   quantity: number,
   sku: string,
 }) => {

@@ -1,6 +1,6 @@
-// import {signOut} from '../user';
+import {signOut} from '../user';
 import actions from './actions';
-import StoragePlaceholder from '../../../../temporaryMocks/others/storagePlaceholder';
+import StoragePlaceholder from '../../../../temporaryMocks/storage/storagePlaceholder';
 import {type fetchCartId} from '../../../../temporaryMocks/Network/fetchCartId';
 import {type fetchCartDetails} from '../../../../temporaryMocks/Network/fetchCartDetails';
 import {type addItemMutation} from '../../../../temporaryMocks/Network/addItemMutation.js';
@@ -90,8 +90,7 @@ export const addItemToCart = (payload: {
 
     const {cart, user} = getState();
     const {cartId} = cart;
-    // const {isSignedIn} = user;
-    const isSignedIn = false;
+    const {isSignedIn} = user;
 
     try {
       const variables = {
@@ -126,8 +125,7 @@ export const addItemToCart = (payload: {
           // Since simple persistence just deletes auth token without
           // informing Redux, we need to perform the sign out action
           // to reset the user and cart slices back to initial state.
-          // await dispatch(signOut());
-          await dispatch(removeCart());
+          await dispatch(signOut());
         }
         else {
           // Delete the cached ID from local storage and Redux.
@@ -192,9 +190,8 @@ export const updateItemInCart = (payload = {}) => {
 
     const {cart, user} = getState();
     const {cartId} = cart;
-    // const {isSignedIn} = user;
+    const {isSignedIn} = user;
 
-    const isSignedIn = false;
 
     try {
       if (productType === 'ConfigurableProduct') {
@@ -360,9 +357,7 @@ export const getCartDetails = (payload: {
   return async function thunk(dispatch, getState) {
     const {cart, user} = getState();
     const {cartId} = cart;
-    // const {isSignedIn} = user;
-
-    const isSignedIn = false;
+    const {isSignedIn} = user;
 
     // if there isn't a cart, create one then retry this operation
     if (!cartId) {
@@ -401,8 +396,7 @@ export const getCartDetails = (payload: {
           // Since simple persistence just deletes auth token without
           // informing Redux, we need to perform the sign out action
           // to reset the user and cart slices back to initial state.
-          // await dispatch(signOut());
-          await dispatch(removeCart());
+          await dispatch(signOut());
         }
         else {
           // Delete the cached ID from local storage.
@@ -452,7 +446,7 @@ export async function clearCartId() {
 }
 
 async function retrieveImageCache() {
-  return storage.getItem('imagesBySku') || {};
+  return await storage.getItem('imagesBySku') || {};
 }
 
 async function saveImageCache(cache: string) {

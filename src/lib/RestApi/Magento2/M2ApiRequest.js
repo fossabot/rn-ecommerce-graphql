@@ -257,10 +257,11 @@ export default M2ApiRequest;
 /**
  * Place a request to the Magento 2 REST API and return a Promise for the
  * response.
- * @param (string) resourceUrl The URL of the resource to request.
+ * @param resourceUrl
  * @param {M2ApiRequestOptions} opts Options to be passed to [fetch](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters), with the addition of the `multicast` option.
  * @returns {Promise} A promise for the parsed REST request.
  */
+
 export function request(resourceUrl, opts) {
     const req = new M2ApiRequest(resourceUrl, opts);
 

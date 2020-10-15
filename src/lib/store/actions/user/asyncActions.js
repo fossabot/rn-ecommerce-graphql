@@ -1,14 +1,14 @@
-import BrowserPersistence from '../../../util/simplePersistence';
-import { removeCart } from '../cart';
-import { clearCheckoutDataFromStorage } from '../checkout';
+import StoragePlaceholder from "../../../../temporaryMocks/storage/storagePlaceholder";
+import {removeCart} from '../cart';
+import {clearCheckoutDataFromStorage} from '../checkout';
 
 import actions from './actions';
 
-const storage = new BrowserPersistence();
+const storage = new StoragePlaceholder();
 
 export const signOut = (payload = {}) =>
     async function thunk(dispatch) {
-        const { revokeToken } = payload;
+        const {revokeToken} = payload;
 
         if (revokeToken) {
             // Send mutation to revoke token.
@@ -33,22 +33,22 @@ export const signOut = (payload = {}) =>
 export const getUserDetails = (payload = {}) =>
     async function thunk(...args) {
         const [dispatch, getState] = args;
-        const { user } = getState();
+        const {user} = getState();
 
         // if (user.isSignedIn) {
-            // dispatch(actions.getDetails.request());
+        // dispatch(actions.getDetails.request());
 
-            try {
-                // const { data } = await fetchUserDetails();
+        try {
+            // const { data } = await fetchUserDetails();
 
-                dispatch(actions.getDetails.receive(payload));
-            } catch (error) {
-                dispatch(actions.getDetails.receive(error));
-            }
+            dispatch(actions.getDetails.receive(payload));
+        } catch (error) {
+            dispatch(actions.getDetails.receive(error));
+        }
         // }
     };
 
-export const resetPassword = ({ email }) =>
+export const resetPassword = ({email}) =>
     async function thunk(...args) {
         const [dispatch] = args;
 

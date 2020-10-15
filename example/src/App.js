@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView } from 'react-native';
 import AppStateDisplay from './test_component/appStateDisplay.js';
 import CatalogStateDisplay from './test_component/catalogStateDisplay.js';
 

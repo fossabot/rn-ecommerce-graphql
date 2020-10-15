@@ -112,3 +112,4 @@ package-lock.json
 # Android memory profiler files
 *.hprof
 android/.gradle
+yarn-error.log
