@@ -12,7 +12,7 @@ const UserContextProvider = props => {
 
     const userApi = useMemo(
         () => ({
-            actions,
+            ...actions,
             ...asyncActions
         }),
         [actions, asyncActions]

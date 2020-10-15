@@ -42,16 +42,16 @@ const reducerMap = {
             ...state,
             isSubmitting: false
         };
-        if (payload.sameAsShippingAddress) {
+        // if (payload.sameAsShippingAddress) {
             newState.billingAddress = {
                 ...payload
             };
-        } else if (!payload.sameAsShippingAddress) {
-            newState.billingAddress = {
-                ...payload,
-                street: [...payload.street]
-            };
-        }
+        // } else if (!payload.sameAsShippingAddress) {
+        //     newState.billingAddress = {
+        //         ...payload,
+        //         street: [...payload.street]
+        //     };
+        // }
         return newState;
     },
     [actions.billingAddress.reject]: (state, { payload }) => {

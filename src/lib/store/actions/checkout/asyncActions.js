@@ -7,16 +7,24 @@ import actions from './actions';
 const { request } = Magento2;
 const storage = new BrowserPersistence();
 
-export const beginCheckout = () =>
+export const beginCheckout = payload =>
     async function thunk(dispatch) {
         // Before we begin, reset the state of checkout to clear out stale data.
         dispatch(actions.reset());
 
-        const storedAvailableShippingMethods = await retreiveAvailableShippingMethods();
-        const storedBillingAddress = await retrieveBillingAddress();
-        const storedPaymentMethod = await retrievePaymentMethod();
-        const storedShippingAddress = await retrieveShippingAddress();
-        const storedShippingMethod = await retrieveShippingMethod();
+        // const storedAvailableShippingMethods = await retreiveAvailableShippingMethods();
+        // const storedBillingAddress = await retrieveBillingAddress();
+        // const storedPaymentMethod = await retrievePaymentMethod();
+        // const storedShippingAddress = await retrieveShippingAddress();
+        // const storedShippingMethod = await retrieveShippingMethod();
+
+        const {
+            storedAvailableShippingMethods,
+            storedBillingAddress,
+            storedPaymentMethod,
+            storedShippingAddress,
+            storedShippingMethod
+        } = payload
 
         dispatch(
             actions.begin({
@@ -53,37 +61,37 @@ export const submitPaymentMethodAndBillingAddress = payload =>
     async function thunk(dispatch) {
         const { countries, formValues } = payload;
         const { billingAddress, paymentMethod } = formValues;
-
-        return Promise.all([
+        console.log(billingAddress);
+        console.log(countries);
+        // return Promise.all([
             dispatch(submitBillingAddress({ billingAddress, countries })),
             dispatch(submitPaymentMethod(paymentMethod))
-        ]);
+        // ]);
     };
 
 export const submitBillingAddress = payload =>
     async function thunk(dispatch, getState) {
         dispatch(actions.billingAddress.submit());
 
-        const { cart } = getState();
+        // const { cart } = getState();
 
-        const { cartId } = cart;
-        if (!cartId) {
-            throw new Error('Missing required information: cartId');
-        }
+        // const { cartId } = cart;
+        // if (!cartId) {
+        //     throw new Error('Missing required information: cartId');
+        // }
 
         try {
             const { billingAddress, countries } = payload;
 
             let desiredBillingAddress = billingAddress;
-            if (!billingAddress.sameAsShippingAddress) {
-                desiredBillingAddress = formatAddress(
-                    billingAddress,
-                    countries
-                );
-            }
+            // if (!billingAddress.sameAsShippingAddress) {
+            //     desiredBillingAddress = formatAddress(
+            //         billingAddress,
+            //         countries
+            //     );
+            // }
 
-            await saveBillingAddress(desiredBillingAddress);
-
+            // await saveBillingAddress(desiredBillingAddress);
             dispatch(actions.billingAddress.accept(desiredBillingAddress));
         } catch (error) {
             dispatch(actions.billingAddress.reject(error));
@@ -95,15 +103,15 @@ export const submitPaymentMethod = payload =>
     async function thunk(dispatch, getState) {
         dispatch(actions.paymentMethod.submit());
 
-        const { cart } = getState();
+        // const { cart } = getState();
 
-        const { cartId } = cart;
-        if (!cartId) {
-            throw new Error('Missing required information: cartId');
-        }
+        // const { cartId } = cart;
+        // if (!cartId) {
+        //     throw new Error('Missing required information: cartId');
+        // }
 
         try {
-            await savePaymentMethod(payload);
+            // await savePaymentMethod(payload);
             dispatch(actions.paymentMethod.accept(payload));
         } catch (error) {
             dispatch(actions.paymentMethod.reject(error));

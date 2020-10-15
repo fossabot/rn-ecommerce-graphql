@@ -1,15 +1,15 @@
 import { handleActions } from 'redux-actions';
 
 import { Util } from '../../index';
-const { BrowserPersistence } = Util;
+// const { BrowserPersistence } = Util;
 
-const storage = new BrowserPersistence();
+// const storage = new BrowserPersistence();
 
 import actions from '../actions/user';
 
 export const name = 'user';
 
-const isSignedIn = () => !!storage.getItem('signin_token');
+// const isSignedIn = () => !!storage.getItem('signin_token');
 
 const initialState = {
     currentUser: {
@@ -20,9 +20,11 @@ const initialState = {
     getDetailsError: null,
     isGettingDetails: false,
     isResettingPassword: false,
-    isSignedIn: isSignedIn(),
+    isSignedIn: false,
+    // isSignedIn: isSignedIn(),
     resetPasswordError: null,
-    token: storage.getItem('signin_token')
+    token: null
+    // token: storage.getItem('signin_token')
 };
 
 const reducerMap = {

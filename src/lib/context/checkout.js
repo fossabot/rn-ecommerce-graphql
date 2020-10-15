@@ -12,7 +12,7 @@ const CheckoutContextProvider = props => {
 
     const checkoutApi = useMemo(
         () => ({
-            actions,
+            ...actions,
             ...asyncActions
         }),
         [actions, asyncActions]

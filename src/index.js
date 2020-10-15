@@ -1,9 +1,11 @@
 export { AppComposite } from './lib/index.js';
 export { demoStore } from './lib/store/x_Store.js';
 
-export { useAppContext } from './lib/context/app.js';
-export { useCatalogContext } from './lib/context/catalog.js';
+export { useAppContext } from './lib/context/app';
+export { useCatalogContext } from './lib/context/catalog';
 export { useCartContext } from './lib/context/cart.js';
+export { useUserContext } from './lib/context/user';
+export { useCheckoutContext } from './lib/context/checkout';
 
 export { default as AppContextProvider } from './lib/context/app.js';
 
