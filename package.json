@@ -140,10 +140,8 @@
     ]
   },
   "dependencies": {
-    "@apollo/client": "^3.2.2",
     "@react-native-community/async-storage": "^1.12.1",
     "@reduxjs/toolkit": "^1.4.0",
-    "graphql-tag": "^2.11.0",
     "prop-types": "^15.7.2",
     "react-intl": "^5.8.5",
     "react-redux": "^7.2.1",

@@ -1,7 +1,6 @@
-import {clearCartDataFromCache} from '../../../Apollo/clearCartDataFromCache';
 // import {signOut} from '../user';
 import actions from './actions';
-import StoragePlaceholder from '../../../util/storagePlaceholder';
+import StoragePlaceholder from '../../../../temporaryMocks/others/storagePlaceholder';
 import {type fetchCartId} from '../../../../temporaryMocks/Network/fetchCartId';
 import {type fetchCartDetails} from '../../../../temporaryMocks/Network/fetchCartDetails';
 import {type addItemMutation} from '../../../../temporaryMocks/Network/addItemMutation.js';
@@ -356,7 +355,7 @@ export const getCartDetails = (payload: {
   fetchCartDetails: fetchCartDetails,
   fetchCartId: fetchCartId,
 }) => {
-  const {apolloClient, fetchCartId, fetchCartDetails} = payload;
+  const { fetchCartId, fetchCartDetails} = payload;
 
   return async function thunk(dispatch, getState) {
     const {cart, user} = getState();
@@ -408,12 +407,6 @@ export const getCartDetails = (payload: {
         else {
           // Delete the cached ID from local storage.
           await dispatch(removeCart());
-        }
-
-        // Clear the cart data from apollo client if we get here and
-        // have an apolloClient.
-        if (apolloClient) {
-          await clearCartDataFromCache(apolloClient);
         }
 
         // Create a new one

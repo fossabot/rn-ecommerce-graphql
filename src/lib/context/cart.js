@@ -1,9 +1,6 @@
 import React, {createContext, useContext, useEffect, useMemo} from 'react';
 import {connect} from 'react-redux';
-// import {useApolloClient, useMutation} from '@apollo/client';
-// import gql from 'graphql-tag';
 
-// import {useAwaitQuery} from '../hooks/useAwaitQuery';
 import actions from '../store/actions/cart/actions';
 import * as asyncActions from '../store/actions/cart/asyncActions';
 import bindActionCreators from '../util/bindActionCreators';
@@ -103,24 +100,4 @@ export default connect(
 
 export const useCartContext = () => useContext(CartContext);
 
-/**
- * We normally do not keep GQL queries in Peregrine. All components should pass
- * queries to talons/hooks. This is an exception to the rule because it would
- * be unnecessarily complex to pass these queries to the context provider.
- */
 
-// const CREATE_CART_MUTATION = gql`
-//     mutation createCart {
-//         cartId: createEmptyCart
-//     }
-// `;
-//
-// const CART_DETAILS_QUERY = gql`
-//     query checkUserIsAuthed($cartId: String!) {
-//         cart(cart_id: $cartId) {
-//             # The purpose of this query is to check that the user is authorized
-//             # to query on the current cart. Just fetch "id" to keep it small.
-//             id
-//         }
-//     }
-// `;

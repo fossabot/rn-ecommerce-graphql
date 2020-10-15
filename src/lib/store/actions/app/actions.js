@@ -7,7 +7,6 @@ const actionTypes = [
     'SET_OFFLINE',
     'TOGGLE_SEARCH',
     'EXECUTE_SEARCH',
-    'MARK_ERROR_HANDLED',
     'SET_PAGE_LOADING'
 ];
 
