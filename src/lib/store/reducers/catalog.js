@@ -23,6 +23,8 @@ const initialState = {
 };
 
 const reducerMap = {
+
+    //Flatten children
     [actions.updateCategories]: (state, { payload }) => {
         const { id } = payload;
         const currentCategory = state.categories[id] || {};

@@ -1,13 +1,13 @@
 import {handleActions} from 'redux-actions';
 import StoragePlaceholder from "../../../temporaryMocks/storage/storagePlaceholder";
 
-// const storage = new StoragePlaceholder();
+const storage = new StoragePlaceholder();
 
 import actions from '../actions/user';
 
 export const name = 'user';
 
-// const isSignedIn = () => !!storage.getItem('signin_token');
+const isSignedIn = () => !!storage.getItem('signin_token');
 
 const initialState = {
     currentUser: {

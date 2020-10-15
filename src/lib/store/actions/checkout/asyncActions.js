@@ -6,6 +6,7 @@ import {requestMimic} from "../../../../temporaryMocks/Network/requestMimic";
 
 const storage = new StoragePlaceholder();
 
+//currently commenting out all storage-related f
 export const beginCheckout = payload =>
     async function thunk(dispatch) {
         // Before we begin, reset the state of checkout to clear out stale data.

@@ -1,8 +1,6 @@
 import { createActions } from 'redux-actions';
 
 const prefix = 'CATALOG';
-const actionTypes = ['UPDATE_CATEGORIES'];
-
 const actionMap = {
     SET_CURRENT_PAGE: {
         REQUEST: null,
@@ -13,5 +11,7 @@ const actionMap = {
         RECEIVE: null
     }
 };
+
+const actionTypes = ['UPDATE_CATEGORIES'];
 
 export default createActions(actionMap, ...actionTypes, { prefix });

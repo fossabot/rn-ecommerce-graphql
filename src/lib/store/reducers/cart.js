@@ -18,6 +18,8 @@ export const initialState = {
     updateItemError: null
 };
 
+
+//some actions are unused
 const reducerMap = {
     [actions.getCart.receive]: (state, { payload, error }) => {
         if (error) {

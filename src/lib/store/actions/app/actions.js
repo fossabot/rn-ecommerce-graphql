@@ -1,6 +1,5 @@
 import { createActions } from 'redux-actions';
 
-const prefix = 'APP';
 const actionTypes = [
     'TOGGLE_DRAWER',
     'SET_ONLINE',
@@ -9,5 +8,6 @@ const actionTypes = [
     'EXECUTE_SEARCH',
     'SET_PAGE_LOADING'
 ];
+const prefix = 'APP';
 
 export default createActions(...actionTypes, { prefix });
