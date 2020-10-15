@@ -2,7 +2,7 @@ import { cart_data } from './fetchCartDetails.js';
 
 export const removeItem = (params: {
   variables: {
-    cartId: cartId,
+    cartId: string,
     itemId: string,
   },
 }) => {

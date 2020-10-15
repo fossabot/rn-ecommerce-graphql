@@ -1,8 +1,9 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { useCartContext } from 'simicart';
 import StateDisplayer from './stateDisplayer.js';
 import ColorfulButton from '../visualComponent/ColorfulButton.js';
+
+import { useCartContext } from 'simicart';
 import { fetchCartId } from 'simicart';
 import { fetchCartDetails } from 'simicart';
 import { addItemMutation } from 'simicart';
