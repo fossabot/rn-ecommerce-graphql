@@ -62,14 +62,14 @@ const CartContextProvider = props => {
     const fetchCartId = fetchCartId;
     const fetchCartDetails = fetchCartDetails;
 
-    useEffect(() => {
-
-        //initializes the cart if there isn't one
-        cartApi.getCartDetails({
-            fetchCartId,
-            fetchCartDetails
-        });
-    }, [cartApi, fetchCartDetails, fetchCartId]);
+    // useEffect(() => {
+    //
+    //     //initializes the cart if there isn't one
+    //     cartApi.getCartDetails({
+    //         fetchCartId,
+    //         fetchCartDetails
+    //     });
+    // }, [cartApi, fetchCartDetails, fetchCartId]);
 
     return (
         <CartContext.Provider value={contextValue}>

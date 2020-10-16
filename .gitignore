@@ -1,8 +1,6 @@
 .idea
-example/node_modules
-yarn.lock
 node_modules
 package-lock.json
-lib
-gen/
+/lib
+/gen
 yarn-error.log
