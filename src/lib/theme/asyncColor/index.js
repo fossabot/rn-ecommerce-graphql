@@ -1,0 +1,1 @@
+export {asyncColor} from './asyncColor'
