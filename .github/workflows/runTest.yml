@@ -30,4 +30,4 @@ jobs:
         with:
           node-version: '14.x'
       - name: Install dependency
-        run: echo hello
+        run: yarn --version
