@@ -25,9 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: '14.x'
-      - name: Install dependency
-        run: yarn --version
+      - run: yarn --version
+      - run: yarn install --frozen-lock
