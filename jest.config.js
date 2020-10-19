@@ -5,7 +5,7 @@ module.exports = {
   clearMocks: true,
   coverageDirectory: '<rootDir>/coverage/',
   setupFilesAfterEnv: ['<rootDir>/jest_config/setup_tests.js'],
-  roots: ['<rootDir>/src/', '<rootDir>/setupTest-Tests'],
+  roots: ['<rootDir>/src/', '<rootDir>/demoTest'],
   preset: 'react-native',
   modulePathIgnorePatterns: [
     '<rootDir>/example/node_modules',
