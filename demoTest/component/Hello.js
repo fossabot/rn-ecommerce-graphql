@@ -1,8 +1,13 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 
 function Hello(props) {
-  return <Text testID={'hello'}>Hello & Konnichiwa</Text>;
+  return (
+    <View>
+      <Text testID={'hello'}>Hello</Text>
+      <Text>Konnichiwa</Text>
+    </View>
+  );
 }
 
 export { Hello };
