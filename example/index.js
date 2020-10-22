@@ -18,7 +18,7 @@ import CheckoutStateDisplay from './src/test_component/checkoutStateDisplay.js';
 
 const Drawer = createDrawerNavigator();
 
-function Index(props) {
+function Index() {
   return (
     <NavigationContainer>
       <AppComposite>
