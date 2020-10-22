@@ -1,15 +1,20 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { store } from '../store/store.js';
+import React, {useMemo} from 'react';
+import {connect, Provider} from 'react-redux';
+import {store} from '../store/store.js';
+import reducers from "../store/reducers/index.js";
+
 import AppContextProvider from '../context/app.js';
 import CatalogContextProvider from '../context/catalog.js';
 import CartContextProvider from '../context/cart.js';
 import CheckoutContextProvider from "../context/checkout.js";
 import UserContextProvider from "../context/user.js";
-import { ApolloProvider, createHttpLink, } from '@apollo/client';
-import { ApolloClient } from '@apollo/client/core';
-import { InMemoryCache } from '@apollo/client/cache';
+import CustomContextProvider from "../context/customContext";
+
+import {ApolloProvider, createHttpLink,} from '@apollo/client';
+import {ApolloClient} from '@apollo/client/core';
+import {InMemoryCache} from '@apollo/client/cache';
 import typePolicies from '../policies';
+import {combineReducers, configureStore} from "@reduxjs/toolkit";
 
 //TODO: error handling
 const preInstantiatedCache = new InMemoryCache({
@@ -18,24 +23,41 @@ const preInstantiatedCache = new InMemoryCache({
     possibleTypes: {}
 });
 
+export const customContext = React.createContext()
+
 
 function AppComposite(props) {
     const apiBase = 'https://magento24.pwa-commerce.com/Store/graphql'
     const cache = preInstantiatedCache;
     const apolloClient = new ApolloClient({
-            cache,
-            uri: apiBase
-        });
-        apolloClient.apiBase = apiBase;
+        cache,
+        uri: apiBase
+    });
+    apolloClient.apiBase = apiBase;
+
+    const customStore = configureStore({
+        reducer: props.customReducer,
+    });
+    const joinStore = configureStore({
+        reducer: {
+            ...reducers,
+            ...props.customReducer
+        }
+
+    })
+    console.log('compositor')
+    console.log({...props.customReducer})
     return (
         <ApolloProvider client={apolloClient}>
-            <Provider store={store}>
+            <Provider store={joinStore}>
                 <AppContextProvider>
                     <CatalogContextProvider>
                         <CartContextProvider>
                             <CheckoutContextProvider>
                                 <UserContextProvider>
-                                    {props.children}
+                                    <Provider store={customStore} context={customContext}>
+                                        {props.children}
+                                    </Provider>
                                 </UserContextProvider>
                             </CheckoutContextProvider>
                         </CartContextProvider>
@@ -46,4 +68,4 @@ function AppComposite(props) {
     );
 }
 
-export { AppComposite };
+export {AppComposite};

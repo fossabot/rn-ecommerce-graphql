@@ -19,12 +19,21 @@ const counterSlice = createSlice({
     increaseByAmount(state, action: PayloadAction<number>) {
       state.counter.value += action.payload;
     },
+    reset(state) {
+      state.counter = initialState.counter;
+    },
   },
 });
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const {
+  increment,
+  decrement,
+  incrementByAmount,
+  reset,
+} = counterSlice.actions;
 
-export const asyncIncrease = async (num: number) => {
-  setTimeout(() => counterSlice.actions.increment(num), 2000);
+export const asyncIncrease = (num: number) => async (dispatch) => {
+  return dispatch(counterSlice.actions.increment());
 };
+
 export default counterSlice.reducer;

@@ -1,4 +1,4 @@
-export { AppComposite } from './lib/index.js';
+export { AppComposite, customContext } from './lib/index.js';
 
 export { useAppContext } from './lib/context/app';
 export { useCatalogContext } from './lib/context/catalog';

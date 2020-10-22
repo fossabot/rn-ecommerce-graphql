@@ -4,10 +4,7 @@ updates:
     directory: "/"
     target-branch: "develop"
     schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "07:30"
-      timezone: "Asia/Saigon"
+      interval: "monthly"
     allow:
       - dependency-type: "direct"
 

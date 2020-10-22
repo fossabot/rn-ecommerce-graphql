@@ -16,15 +16,18 @@ import CartStateDisplay from './src/test_component/cartStateDisplay';
 import UserStateDisplay from './src/test_component/userStateDisplay.js';
 import CheckoutStateDisplay from './src/test_component/checkoutStateDisplay.js';
 import { CategoryPage } from 'simicart';
+import CustomStateDisplay from './src/test_component/customStateDisplay';
+import counterSlice from './src/customReducer/counterSlice';
 
 const Drawer = createDrawerNavigator();
 
 function Index() {
   return (
     <NavigationContainer>
-      <AppComposite>
+      <AppComposite customReducer={counterSlice}>
         <Drawer.Navigator>
-          <Drawer.Screen name={'DemoCatedgory'} component={CategoryPage} />
+          <Drawer.Screen name={'Custom'} component={CustomStateDisplay} />
+          <Drawer.Screen name={'DemoCategory'} component={CategoryPage} />
           <Drawer.Screen name={'Cart'} component={CartStateDisplay} />
           <Drawer.Screen name={'App'} component={AppStateDisplay} />
           <Drawer.Screen name={'Catalog'} component={CatalogStateDisplay} />
