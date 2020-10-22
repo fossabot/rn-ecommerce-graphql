@@ -15,22 +15,24 @@ import CatalogStateDisplay from './src/test_component/catalogStateDisplay.js';
 import CartStateDisplay from './src/test_component/cartStateDisplay';
 import UserStateDisplay from './src/test_component/userStateDisplay.js';
 import CheckoutStateDisplay from './src/test_component/checkoutStateDisplay.js';
+import {CategoryPage} from 'simicart'
 
 const Drawer = createDrawerNavigator();
 
 function Index(props) {
   return (
-    <NavigationContainer>
-      <AppComposite>
-        <Drawer.Navigator>
-          <Drawer.Screen name={'Cart'} component={CartStateDisplay} />
-          <Drawer.Screen name={'App'} component={AppStateDisplay} />
-          <Drawer.Screen name={'Catalog'} component={CatalogStateDisplay} />
-          <Drawer.Screen name={'User'} component={UserStateDisplay} />
-          <Drawer.Screen name={'Checkout'} component={CheckoutStateDisplay} />
-        </Drawer.Navigator>
-      </AppComposite>
-    </NavigationContainer>
+      <NavigationContainer>
+        <AppComposite>
+          <Drawer.Navigator>
+            <Drawer.Screen name={'DemoCategory'} component={CategoryPage} />
+            <Drawer.Screen name={'Cart'} component={CartStateDisplay} />
+            <Drawer.Screen name={'App'} component={AppStateDisplay} />
+            <Drawer.Screen name={'Catalog'} component={CatalogStateDisplay} />
+            <Drawer.Screen name={'User'} component={UserStateDisplay} />
+            <Drawer.Screen name={'Checkout'} component={CheckoutStateDisplay} />
+          </Drawer.Navigator>
+        </AppComposite>
+      </NavigationContainer>
   );
 }
 
