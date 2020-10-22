@@ -1,0 +1,33 @@
+name: run Jest Tests
+on:
+  push:
+    branches:
+      - main
+      - 'develop'
+      - 'demo/try_github_actions'
+      - 'releases/**'
+    tag:
+      - v1
+      - v1.*
+
+  pull_request:
+    branches:
+      - main
+      - 'develop'
+      - 'demo/try_github_actions'
+      - 'releases/**'
+    tag:
+      - v1
+      - v1.*
+
+jobs:
+  run_jest_tests_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - run: yarn --version
+      - run: yarn install --frozen-lock
+      - run: yarn test
