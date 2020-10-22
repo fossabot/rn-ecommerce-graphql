@@ -15,11 +15,11 @@ import CatalogStateDisplay from './src/test_component/catalogStateDisplay.js';
 import CartStateDisplay from './src/test_component/cartStateDisplay';
 import UserStateDisplay from './src/test_component/userStateDisplay.js';
 import CheckoutStateDisplay from './src/test_component/checkoutStateDisplay.js';
-import { CategoryPage } from 'simicart'
+import { CategoryPage } from 'simicart';
 
 const Drawer = createDrawerNavigator();
 
-function Index(props) {
+function Index() {
   return (
     <NavigationContainer>
       <AppComposite>
