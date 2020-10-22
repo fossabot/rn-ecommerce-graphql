@@ -6,9 +6,12 @@ on:
       - 'develop'
       - 'demo/try_github_actions'
       - 'releases/**'
-    tag:
-      - v1
-      - v1.*
+    paths:
+      - '**.js'
+      - '**.jsx'
+      - '**.ts'
+      - '**.tsx'
+      - '**.json'
 
   pull_request:
     branches:
@@ -16,9 +19,13 @@ on:
       - 'develop'
       - 'demo/try_github_actions'
       - 'releases/**'
-    tag:
-      - v1
-      - v1.*
+    paths:
+      - '**.js'
+      - '**.jsx'
+      - '**.ts'
+      - '**.tsx'
+      - '**.json'
+
 
 jobs:
   run_jest_tests_job:
