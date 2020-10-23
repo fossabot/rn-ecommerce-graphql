@@ -1,1 +1,1 @@
-export {ThemeProvider} from './themeProvider'
+export {ThemeProvider} from './elementThemeProvider/index.js'

@@ -15,7 +15,7 @@ import CatalogStateDisplay from './src/test_component/catalogStateDisplay.js';
 import CartStateDisplay from './src/test_component/cartStateDisplay';
 import UserStateDisplay from './src/test_component/userStateDisplay.js';
 import CheckoutStateDisplay from './src/test_component/checkoutStateDisplay.js';
-import { ColorStateDisplay } from './src/test_component/colorStateDisplay';
+import { Color_element_StateDisplay } from './src/test_component/color_element_StateDisplay';
 
 const Drawer = createDrawerNavigator();
 
@@ -24,7 +24,10 @@ function Index() {
     <NavigationContainer>
       <AppComposite>
         <Drawer.Navigator>
-          <Drawer.Screen name={'Color'} component={ColorStateDisplay} />
+          <Drawer.Screen
+            name={'Color Element'}
+            component={Color_element_StateDisplay}
+          />
           <Drawer.Screen name={'Cart'} component={CartStateDisplay} />
           <Drawer.Screen name={'App'} component={AppStateDisplay} />
           <Drawer.Screen name={'Catalog'} component={CatalogStateDisplay} />

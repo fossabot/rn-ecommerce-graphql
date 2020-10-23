@@ -6,7 +6,9 @@ import CatalogContextProvider from '../context/catalog.js';
 import CartContextProvider from '../context/cart.js';
 import CheckoutContextProvider from "../context/checkout.js";
 import UserContextProvider from "../context/user.js";
-import {ThemeProvider} from "../theme/themeProvider";
+import {ThemeProvider} from "../theme/index.js";
+
+
 
 
 //TODO: error handling
@@ -18,9 +20,9 @@ function AppComposite(props) {
                     <CartContextProvider>
                         <CheckoutContextProvider>
                             <UserContextProvider>
-                                <ThemeProvider>
+                                {/*<ThemeProvider>*/}
                                     {props.children}
-                                </ThemeProvider>
+                                {/*</ThemeProvider>*/}
                             </UserContextProvider>
                         </CheckoutContextProvider>
                     </CartContextProvider>
