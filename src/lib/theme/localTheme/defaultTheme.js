@@ -1,6 +1,6 @@
 export const defaultTheme = {
     color: {
-        primary: '#37bcd9',
+        primary: '#97bcd9',
         primary_variant_1: '#41c6e0',
         primary_variant_2: '#2c97ab',
         primary_variant_3: '#b5ebf5',
@@ -15,7 +15,7 @@ export const defaultTheme = {
         warning: '#d9d51b',
 
         background: '#FFFFFF',
-        surface: '##d0c5f6',
+        surface: '#d0c5f6',
 
         on: {
             primary: '#FFFFFF',
@@ -67,7 +67,15 @@ export const defaultTheme = {
         email: {
             name: 'ios-american-football',
             type: 'ionicon',
+        },
+        checkbox: {
+            iconType: 'ionicon',
+            name: 'ios-american-football'
+        },
+        social: {
+            iconType: 'material-community'
         }
+
 
     }
 }

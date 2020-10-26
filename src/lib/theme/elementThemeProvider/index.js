@@ -1,1 +1,1 @@
-export {ThemeProvider} from "./ThemeProvider.js";
+export {MagicalProvider} from "./MagicalProvider.js";
