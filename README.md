@@ -1,7 +1,7 @@
-# RN-Ecommerce
+# RN-Ecommerce-Graphql
 
+Everythings you need to build a Magento mobile app.
 
-__RN-Ecommerce__ is a React-Native library for building a customized Ecommerce app.
 
 ### How to use:
 
