@@ -21,7 +21,7 @@ const timeout = (second: number) => {
 
 
 export const getAsyncTheme = async () => {
-    await timeout(4);
+    await timeout(5);
     console.log('Something happened')
     return data
 }

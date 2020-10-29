@@ -61,8 +61,7 @@ export const defaultTheme = {
             color: '#ffffff',
             size: '50',
             reverse: true,
-            reversedColor: '#000000',
-
+            reversedColor: '#000000'
         },
         email: {
             name: 'ios-american-football',
@@ -72,10 +71,11 @@ export const defaultTheme = {
             iconType: 'ionicon',
             name: 'ios-american-football'
         },
-        social: {
-            iconType: 'material-community'
+    },
+
+    isSignedIn: {
+        color: {
+            primary: '#F5F700'
         }
-
-
     }
 }

@@ -17,6 +17,10 @@ export const joinNestedTheme = (theme1: theme, theme2): theme => {
         icon: {
             ...theme1?.icon,
             ...theme2?.icon,
+        },
+        isSignedIn: {
+            ...theme1?.isSignedIn,
+            ...theme2?.isSignedIn,
         }
     }
 }
