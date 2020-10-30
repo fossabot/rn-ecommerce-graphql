@@ -147,6 +147,8 @@
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",
     "@reduxjs/toolkit": "^1.4.0",
+    "md5": "^2.3.0",
+    "nanoid": "^3.1.16",
     "prop-types": "^15.7.2",
     "react-intl": "^5.8.5",
     "react-native-elements": "^3.0.0-alpha.1",
