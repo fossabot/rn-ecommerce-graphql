@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
-    "@react-navigation/drawer": "^5.9.3",
+    "@react-navigation/drawer": "^5.10.2",
     "@react-navigation/native": "^5.7.6",
     "@reduxjs/toolkit": "^1.4.0",
     "react": "16.11.0",
