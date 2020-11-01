@@ -70,7 +70,7 @@
     "react": "16.11.0",
     "react-dom": "^16.14.0",
     "react-native": "0.62.2",
-    "release-it": "^13.5.8",
+    "release-it": "^14.2.1",
     "typescript": "^3.8.3"
   },
   "peerDependencies": {
