@@ -8,6 +8,8 @@ import {generateSortLabelName} from "./ApplyingLabel/productSortLabel.js";
 import {filterArray, sortArray} from './layers.flow.js'
 import {getFilteredData} from "./logic/filter.js";
 import {getSortedData} from "./logic/sort.js";
+import {RoundSmallGreyBadge} from "../RoundSmallGreyBadge/roundSmallGreyBadge.js";
+import {AutoTrimRoundSmallGreyBadge} from "../RoundSmallGreyBadge/autoTrimRoundSmallGreyBadge";
 
 const md5 = require('md5');
 
@@ -54,9 +56,8 @@ function ProductList(props) {
     return (
         <ScrollView>
             {renderLabels(filterLayers, sortLayers)}
-
+            <AutoTrimRoundSmallGreyBadge title={'Somewhere over the rainbow'}/>
             {Platform.OS === 'ios' ? <View style={{height: 50}}/> : null}
-
             <Button title={'Sort me'} onPress={() => {
                 handleSort([{
                     name: 'name',
