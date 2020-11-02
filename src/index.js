@@ -19,3 +19,4 @@ export { fetchCartDetails } from './temporaryMocks/Network/fetchCartDetails.js';
 export { addItemMutation } from './temporaryMocks/Network/addItemMutation.js';
 export { removeItem } from './temporaryMocks/Network/removeItem.js';
 export { updateItem } from './temporaryMocks/Network/updateItem.js';
+export { CategoryList, CategoryWrapper } from './lib/index.js';

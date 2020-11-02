@@ -15,6 +15,7 @@ import CatalogStateDisplay from './src/test_component/catalogStateDisplay.js';
 import CartStateDisplay from './src/test_component/cartStateDisplay';
 import UserStateDisplay from './src/test_component/userStateDisplay.js';
 import CheckoutStateDisplay from './src/test_component/checkoutStateDisplay.js';
+import { CategoryList, CategoryWrapper } from 'simicart';
 
 const Drawer = createDrawerNavigator();
 
@@ -23,6 +24,7 @@ function Index() {
     <NavigationContainer>
       <AppComposite>
         <Drawer.Navigator>
+          <Drawer.Screen name={'Category List'} component={CategoryWrapper} />
           <Drawer.Screen name={'Cart'} component={CartStateDisplay} />
           <Drawer.Screen name={'App'} component={AppStateDisplay} />
           <Drawer.Screen name={'Catalog'} component={CatalogStateDisplay} />
