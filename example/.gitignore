@@ -113,3 +113,4 @@ package-lock.json
 *.hprof
 android/.gradle
 yarn-error.log
+/ios/Pods
